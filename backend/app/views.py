@@ -18,12 +18,13 @@ class ListItemViewSet(viewsets.ModelViewSet):
         serializer = ListItemSerializer(item)
         return Response(serializer.data)
     
+    @action(detail=True, methods=['POST'])
     def edit_amount(self, request, pk=None):
         item = self.get_object()
         edit = request.data['edit']
         if edit == 'inc':
             item.amount += 1
-        elif edit == 'dec':
+        elif edit == 'dec' and item.amount > 0:
             item.amount -= 1
         else :
             return Response({'error': 'Invalid edit type'})
