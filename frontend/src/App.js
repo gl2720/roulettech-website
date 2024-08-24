@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom/client';
 import axios from 'axios';
 import {
   Container, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Button, TextField, Box
@@ -7,8 +6,6 @@ import {
 import {
   Add as AddIcon, Remove as RemoveIcon, Delete as DeleteIcon, CheckCircle as CheckIcon, RadioButtonUnchecked as UncheckIcon
 } from '@mui/icons-material';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
 
 const App = () => {
     const [items, setItems] = useState([]);
@@ -102,13 +99,5 @@ const App = () => {
         </Container>
     );
 };
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
-);
 
 export default App;
