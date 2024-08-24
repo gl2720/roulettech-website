@@ -6,6 +6,11 @@ from .serializers import ListItemSerializer
 from .models import ListItem
 
 # Create your views here.
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html')
+
 class ListItemViewSet(viewsets.ModelViewSet):
     queryset = ListItem.objects.all().order_by('-created_at')
     serializer_class = ListItemSerializer

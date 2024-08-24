@@ -39,8 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'webpack_loader'
 ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'static/bundles/',  # Directory for bundles
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'build', 'webpack-stats.json'),
+    }
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
